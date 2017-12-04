@@ -1,0 +1,372 @@
+package santa.santa2015;
+
+public class Santa6 {
+
+    public static void main(String[] args) {
+        String a = "turn on 489,959 through 759,964xxx"
+                + "turn off 820,516 through 871,914xxx"
+                + "turn off 427,423 through 929,502xxx"
+                + "turn on 774,14 through 977,877xxx"
+                + "turn on 410,146 through 864,337xxx"
+                + "turn on 931,331 through 939,812xxx"
+                + "turn off 756,53 through 923,339xxx"
+                + "turn off 313,787 through 545,979xxx"
+                + "turn off 12,823 through 102,934xxx"
+                + "toggle 756,965 through 812,992xxx"
+                + "turn off 743,684 through 789,958xxx"
+                + "toggle 120,314 through 745,489xxx"
+                + "toggle 692,845 through 866,994xxx"
+                + "turn off 587,176 through 850,273xxx"
+                + "turn off 674,321 through 793,388xxx"
+                + "toggle 749,672 through 973,965xxx"
+                + "turn on 943,30 through 990,907xxx"
+                + "turn on 296,50 through 729,664xxx"
+                + "turn on 212,957 through 490,987xxx"
+                + "toggle 171,31 through 688,88xxx"
+                + "turn off 991,989 through 994,998xxx"
+                + "turn off 913,943 through 958,953xxx"
+                + "turn off 278,258 through 367,386xxx"
+                + "toggle 275,796 through 493,971xxx"
+                + "turn off 70,873 through 798,923xxx"
+                + "toggle 258,985 through 663,998xxx"
+                + "turn on 601,259 through 831,486xxx"
+                + "turn off 914,94 through 941,102xxx"
+                + "turn off 558,161 through 994,647xxx"
+                + "turn on 119,662 through 760,838xxx"
+                + "toggle 378,775 through 526,852xxx"
+                + "turn off 384,670 through 674,972xxx"
+                + "turn off 249,41 through 270,936xxx"
+                + "turn on 614,742 through 769,780xxx"
+                + "turn on 427,70 through 575,441xxx"
+                + "turn on 410,478 through 985,753xxx"
+                + "turn off 619,46 through 931,342xxx"
+                + "turn on 284,55 through 768,922xxx"
+                + "turn off 40,592 through 728,685xxx"
+                + "turn on 825,291 through 956,950xxx"
+                + "turn on 147,843 through 592,909xxx"
+                + "turn off 218,675 through 972,911xxx"
+                + "toggle 249,291 through 350,960xxx"
+                + "turn off 556,80 through 967,675xxx"
+                + "toggle 609,148 through 968,279xxx"
+                + "toggle 217,605 through 961,862xxx"
+                + "toggle 407,177 through 548,910xxx"
+                + "toggle 400,936 through 599,938xxx"
+                + "turn off 721,101 through 925,455xxx"
+                + "turn on 268,631 through 735,814xxx"
+                + "toggle 549,969 through 612,991xxx"
+                + "toggle 553,268 through 689,432xxx"
+                + "turn off 817,668 through 889,897xxx"
+                + "toggle 801,544 through 858,556xxx"
+                + "toggle 615,729 through 832,951xxx"
+                + "turn off 427,477 through 958,948xxx"
+                + "turn on 164,49 through 852,946xxx"
+                + "turn on 542,449 through 774,776xxx"
+                + "turn off 923,196 through 980,446xxx"
+                + "toggle 90,310 through 718,846xxx"
+                + "turn off 657,215 through 744,252xxx"
+                + "turn off 800,239 through 811,712xxx"
+                + "turn on 502,90 through 619,760xxx"
+                + "toggle 649,512 through 862,844xxx"
+                + "turn off 334,903 through 823,935xxx"
+                + "turn off 630,233 through 839,445xxx"
+                + "turn on 713,67 through 839,865xxx"
+                + "turn on 932,50 through 982,411xxx"
+                + "turn off 480,729 through 984,910xxx"
+                + "turn on 100,219 through 796,395xxx"
+                + "turn on 758,108 through 850,950xxx"
+                + "turn off 427,276 through 439,938xxx"
+                + "turn on 178,284 through 670,536xxx"
+                + "toggle 540,27 through 625,102xxx"
+                + "turn off 906,722 through 936,948xxx"
+                + "toggle 345,418 through 859,627xxx"
+                + "toggle 175,775 through 580,781xxx"
+                + "toggle 863,28 through 929,735xxx"
+                + "turn off 824,858 through 905,973xxx"
+                + "toggle 752,312 through 863,425xxx"
+                + "turn on 985,716 through 988,852xxx"
+                + "turn off 68,504 through 763,745xxx"
+                + "toggle 76,209 through 810,720xxx"
+                + "turn off 657,607 through 676,664xxx"
+                + "toggle 596,869 through 896,921xxx"
+                + "turn off 915,411 through 968,945xxx"
+                + "turn off 368,39 through 902,986xxx"
+                + "turn on 11,549 through 393,597xxx"
+                + "turn off 842,893 through 976,911xxx"
+                + "toggle 274,106 through 581,329xxx"
+                + "toggle 406,403 through 780,950xxx"
+                + "toggle 408,988 through 500,994xxx"
+                + "toggle 217,73 through 826,951xxx"
+                + "turn on 917,872 through 961,911xxx"
+                + "toggle 394,34 through 510,572xxx"
+                + "toggle 424,603 through 583,626xxx"
+                + "toggle 106,159 through 755,738xxx"
+                + "turn off 244,610 through 472,709xxx"
+                + "turn on 350,265 through 884,690xxx"
+                + "turn on 688,184 through 928,280xxx"
+                + "toggle 279,443 through 720,797xxx"
+                + "turn off 615,493 through 888,610xxx"
+                + "toggle 118,413 through 736,632xxx"
+                + "turn on 798,782 through 829,813xxx"
+                + "turn off 250,934 through 442,972xxx"
+                + "turn on 68,503 through 400,949xxx"
+                + "toggle 297,482 through 313,871xxx"
+                + "toggle 710,3 through 839,859xxx"
+                + "turn on 125,300 through 546,888xxx"
+                + "toggle 482,39 through 584,159xxx"
+                + "turn off 536,89 through 765,962xxx"
+                + "turn on 530,518 through 843,676xxx"
+                + "turn on 994,467 through 994,676xxx"
+                + "turn on 623,628 through 744,927xxx"
+                + "toggle 704,912 through 837,983xxx"
+                + "turn on 154,364 through 517,412xxx"
+                + "toggle 344,409 through 780,524xxx"
+                + "turn off 578,740 through 725,879xxx"
+                + "turn on 251,933 through 632,957xxx"
+                + "turn on 827,705 through 971,789xxx"
+                + "toggle 191,282 through 470,929xxx"
+                + "toggle 324,525 through 446,867xxx"
+                + "toggle 534,343 through 874,971xxx"
+                + "toggle 550,650 through 633,980xxx"
+                + "toggle 837,404 through 881,915xxx"
+                + "toggle 338,881 through 845,905xxx"
+                + "turn on 469,462 through 750,696xxx"
+                + "turn on 741,703 through 892,870xxx"
+                + "turn off 570,215 through 733,562xxx"
+                + "turn on 445,576 through 870,775xxx"
+                + "turn on 466,747 through 554,878xxx"
+                + "turn off 820,453 through 868,712xxx"
+                + "turn off 892,706 through 938,792xxx"
+                + "turn off 300,238 through 894,746xxx"
+                + "turn off 306,44 through 457,444xxx"
+                + "turn off 912,569 through 967,963xxx"
+                + "toggle 109,756 through 297,867xxx"
+                + "turn on 37,546 through 41,951xxx"
+                + "turn on 321,637 through 790,910xxx"
+                + "toggle 66,50 through 579,301xxx"
+                + "toggle 933,221 through 933,791xxx"
+                + "turn on 486,676 through 878,797xxx"
+                + "turn on 417,231 through 556,317xxx"
+                + "toggle 904,468 through 981,873xxx"
+                + "turn on 417,675 through 749,712xxx"
+                + "turn on 692,371 through 821,842xxx"
+                + "toggle 324,73 through 830,543xxx"
+                + "turn on 912,490 through 977,757xxx"
+                + "turn off 634,872 through 902,949xxx"
+                + "toggle 266,779 through 870,798xxx"
+                + "turn on 772,982 through 990,996xxx"
+                + "turn off 607,46 through 798,559xxx"
+                + "turn on 295,602 through 963,987xxx"
+                + "turn on 657,86 through 944,742xxx"
+                + "turn off 334,639 through 456,821xxx"
+                + "turn off 997,667 through 997,670xxx"
+                + "turn off 725,832 through 951,945xxx"
+                + "turn off 30,120 through 952,984xxx"
+                + "turn on 860,965 through 917,976xxx"
+                + "toggle 471,997 through 840,998xxx"
+                + "turn off 319,307 through 928,504xxx"
+                + "toggle 823,631 through 940,908xxx"
+                + "toggle 969,984 through 981,993xxx"
+                + "turn off 691,319 through 865,954xxx"
+                + "toggle 911,926 through 938,929xxx"
+                + "turn on 953,937 through 968,991xxx"
+                + "toggle 914,643 through 975,840xxx"
+                + "turn on 266,982 through 436,996xxx"
+                + "turn off 101,896 through 321,932xxx"
+                + "turn off 193,852 through 751,885xxx"
+                + "turn off 576,532 through 863,684xxx"
+                + "turn on 761,456 through 940,783xxx"
+                + "turn on 20,290 through 398,933xxx"
+                + "turn off 435,335 through 644,652xxx"
+                + "turn on 830,569 through 905,770xxx"
+                + "turn off 630,517 through 905,654xxx"
+                + "turn on 664,53 through 886,976xxx"
+                + "toggle 275,416 through 408,719xxx"
+                + "turn on 370,621 through 515,793xxx"
+                + "turn on 483,373 through 654,749xxx"
+                + "turn on 656,786 through 847,928xxx"
+                + "turn off 532,752 through 945,974xxx"
+                + "toggle 301,150 through 880,792xxx"
+                + "turn off 951,488 through 958,952xxx"
+                + "turn on 207,729 through 882,828xxx"
+                + "toggle 694,532 through 973,961xxx"
+                + "toggle 676,639 through 891,802xxx"
+                + "turn off 653,6 through 905,519xxx"
+                + "toggle 391,109 through 418,312xxx"
+                + "turn on 877,423 through 957,932xxx"
+                + "turn on 340,145 through 563,522xxx"
+                + "turn off 978,467 through 988,895xxx"
+                + "turn off 396,418 through 420,885xxx"
+                + "turn off 31,308 through 816,316xxx"
+                + "turn on 107,675 through 758,824xxx"
+                + "turn on 61,82 through 789,876xxx"
+                + "turn on 750,743 through 754,760xxx"
+                + "toggle 88,733 through 736,968xxx"
+                + "turn off 754,349 through 849,897xxx"
+                + "toggle 157,50 through 975,781xxx"
+                + "turn off 230,231 through 865,842xxx"
+                + "turn off 516,317 through 630,329xxx"
+                + "turn off 697,820 through 829,903xxx"
+                + "turn on 218,250 through 271,732xxx"
+                + "toggle 56,167 through 404,431xxx"
+                + "toggle 626,891 through 680,927xxx"
+                + "toggle 370,207 through 791,514xxx"
+                + "toggle 860,74 through 949,888xxx"
+                + "turn on 416,527 through 616,541xxx"
+                + "turn off 745,449 through 786,908xxx"
+                + "turn on 485,554 through 689,689xxx"
+                + "turn on 586,62 through 693,141xxx"
+                + "toggle 506,759 through 768,829xxx"
+                + "turn on 473,109 through 929,166xxx"
+                + "turn on 760,617 through 773,789xxx"
+                + "toggle 595,683 through 618,789xxx"
+                + "turn off 210,775 through 825,972xxx"
+                + "toggle 12,426 through 179,982xxx"
+                + "turn on 774,539 through 778,786xxx"
+                + "turn on 102,498 through 121,807xxx"
+                + "turn off 706,897 through 834,965xxx"
+                + "turn off 678,529 through 824,627xxx"
+                + "turn on 7,765 through 615,870xxx"
+                + "turn off 730,872 through 974,943xxx"
+                + "turn off 595,626 through 836,711xxx"
+                + "turn off 215,424 through 841,959xxx"
+                + "toggle 341,780 through 861,813xxx"
+                + "toggle 507,503 through 568,822xxx"
+                + "turn on 252,603 through 349,655xxx"
+                + "toggle 93,521 through 154,834xxx"
+                + "turn on 565,682 through 951,954xxx"
+                + "turn on 544,318 through 703,418xxx"
+                + "toggle 756,953 through 891,964xxx"
+                + "turn on 531,123 through 856,991xxx"
+                + "turn on 148,315 through 776,559xxx"
+                + "turn off 925,835 through 963,971xxx"
+                + "turn on 895,944 through 967,964xxx"
+                + "turn off 102,527 through 650,747xxx"
+                + "toggle 626,105 through 738,720xxx"
+                + "turn off 160,75 through 384,922xxx"
+                + "toggle 813,724 through 903,941xxx"
+                + "turn on 207,107 through 982,849xxx"
+                + "toggle 750,505 through 961,697xxx"
+                + "toggle 105,410 through 885,819xxx"
+                + "turn on 226,104 through 298,283xxx"
+                + "turn off 224,604 through 508,762xxx"
+                + "turn on 477,368 through 523,506xxx"
+                + "turn off 477,901 through 627,936xxx"
+                + "turn off 887,131 through 889,670xxx"
+                + "turn on 896,994 through 938,999xxx"
+                + "toggle 401,580 through 493,728xxx"
+                + "toggle 987,184 through 991,205xxx"
+                + "turn on 821,643 through 882,674xxx"
+                + "toggle 784,940 through 968,959xxx"
+                + "turn off 251,293 through 274,632xxx"
+                + "turn off 339,840 through 341,844xxx"
+                + "turn off 675,351 through 675,836xxx"
+                + "toggle 918,857 through 944,886xxx"
+                + "toggle 70,253 through 918,736xxx"
+                + "turn off 612,604 through 772,680xxx"
+                + "turn off 277,40 through 828,348xxx"
+                + "toggle 692,139 through 698,880xxx"
+                + "toggle 124,446 through 883,453xxx"
+                + "toggle 969,932 through 990,945xxx"
+                + "toggle 855,692 through 993,693xxx"
+                + "toggle 722,472 through 887,899xxx"
+                + "toggle 978,149 through 985,442xxx"
+                + "toggle 837,540 through 916,889xxx"
+                + "turn off 612,2 through 835,82xxx"
+                + "toggle 560,767 through 878,856xxx"
+                + "turn on 461,734 through 524,991xxx"
+                + "toggle 206,824 through 976,912xxx"
+                + "turn on 826,610 through 879,892xxx"
+                + "turn on 577,699 through 956,933xxx"
+                + "turn off 9,250 through 50,529xxx"
+                + "turn off 77,657 through 817,677xxx"
+                + "turn on 68,419 through 86,426xxx"
+                + "turn on 991,720 through 992,784xxx"
+                + "turn on 668,20 through 935,470xxx"
+                + "turn off 133,418 through 613,458xxx"
+                + "turn off 487,286 through 540,328xxx"
+                + "toggle 247,874 through 840,955xxx"
+                + "toggle 301,808 through 754,970xxx"
+                + "turn off 34,194 through 578,203xxx"
+                + "turn off 451,49 through 492,921xxx"
+                + "turn on 907,256 through 912,737xxx"
+                + "turn off 479,305 through 702,587xxx"
+                + "turn on 545,583 through 732,749xxx"
+                + "toggle 11,16 through 725,868xxx"
+                + "turn on 965,343 through 986,908xxx"
+                + "turn on 674,953 through 820,965xxx"
+                + "toggle 398,147 through 504,583xxx"
+                + "turn off 778,194 through 898,298xxx"
+                + "turn on 179,140 through 350,852xxx"
+                + "turn off 241,118 through 530,832xxx"
+                + "turn off 41,447 through 932,737xxx"
+                + "turn off 820,663 through 832,982xxx"
+                + "turn on 550,460 through 964,782xxx"
+                + "turn on 31,760 through 655,892xxx"
+                + "toggle 628,958 through 811,992xxx";
+             
+        int[][] u = new int[1000][1000];
+        
+        String data[] = a.split("xxx");
+        for (String string : data) {
+            string = string.replace("through ", "");
+            string = string.replace(",", " ");
+            if (string.startsWith("toggle")) {
+                string = string.replace("toggle", "");
+                String[] bb = string.trim().split(" ");
+                int x1 = Integer.parseInt(bb[0]);
+                int y1 = Integer.parseInt(bb[1]);
+                int x2 = Integer.parseInt(bb[2]);
+                int y2 = Integer.parseInt(bb[3]);
+                for (int i = x1; i <= x2; i++) {
+                    for (int j = y1; j <= y2; j++) {
+                        u[j][i] += 2;
+                    }
+                }
+            } 
+            if (string.startsWith("turn on")) {
+                string = string.replace("turn on", "");
+                String[] bb = string.trim().split(" ");
+                int x1 = Integer.parseInt(bb[0]);
+                int y1 = Integer.parseInt(bb[1]);
+                int x2 = Integer.parseInt(bb[2]);
+                int y2 = Integer.parseInt(bb[3]);
+                for (int i = x1; i <= x2; i++) {
+                    for (int j = y1; j <= y2; j++) {
+                        u[j][i]++;
+                    }
+                }
+            }
+            
+            if (string.startsWith("turn off")) {
+                string = string.replace("turn off", "");
+                String[] bb = string.trim().split(" ");
+                int x1 = Integer.parseInt(bb[0]);
+                int y1 = Integer.parseInt(bb[1]);
+                int x2 = Integer.parseInt(bb[2]);
+                int y2 = Integer.parseInt(bb[3]);
+                for (int i = x1; i <= x2; i++) {
+                    for (int j = y1; j <= y2; j++) {
+                        u[j][i] = u[j][i] - 1;
+                        if (u[j][i] < 0) {
+                            u[j][i] = 0;
+                        }
+                    }
+                }
+            }
+        }
+        int count = 0;
+        for (int i = 0; i < 1000; i++) {
+            for (int j = 0; j < 1000; j++) {
+                if (u[j][i] > 0) {
+                    count += u[j][i];
+                }
+            }
+        }
+        System.out.println(count);
+    }
+    
+    
+    
+    
+
+}
