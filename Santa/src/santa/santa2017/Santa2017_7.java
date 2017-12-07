@@ -28,29 +28,7 @@ public class Santa2017_7 implements SantaIssue {
 
 	@Override
 	public void solvePart2(String data, List<String> dataLines) {
-		List<SubTower> tower = new ArrayList<>();
-		for (String line : dataLines) {
-			String[] names = line.split(" ");
-
-			int weigth = Integer.valueOf(names[1].replace("(", "").replace(")", ""));
-			SubTower subTower = new SubTower(names[0], weigth);
-			if (tower.contains(subTower)) {
-				subTower = tower.get(tower.indexOf(subTower));
-				subTower.setWeigth(weigth);
-			} else {
-				tower.add(subTower);
-			}
-
-			for (int i = 3; i < names.length; i++) {
-				SubTower subt = new SubTower(names[i].replaceAll(",", ""));
-				if (tower.contains(subt)) {
-					subt = tower.get(tower.indexOf(subt));
-				} else {
-					tower.add(subt);
-				}
-				subTower.addSubTower(subt);
-			}
-		}
+		List<SubTower> tower = fillTree(dataLines);
 		int difference = 0;
 		SubTower wrongTower = new SubTower("fake", Integer.MAX_VALUE);
 		
@@ -95,6 +73,33 @@ public class Santa2017_7 implements SantaIssue {
 
 		System.out.println("Result: " + (wrongTower.weigth - difference));
 
+	}
+	
+	private List<SubTower> fillTree(List<String> dataLines) {
+		List<SubTower> tower = new ArrayList<>();
+		for (String line : dataLines) {
+			String[] names = line.split(" ");
+
+			int weigth = Integer.valueOf(names[1].replace("(", "").replace(")", ""));
+			SubTower subTower = new SubTower(names[0], weigth);
+			if (tower.contains(subTower)) {
+				subTower = tower.get(tower.indexOf(subTower));
+				subTower.setWeigth(weigth);
+			} else {
+				tower.add(subTower);
+			}
+
+			for (int i = 3; i < names.length; i++) {
+				SubTower subt = new SubTower(names[i].replaceAll(",", ""));
+				if (tower.contains(subt)) {
+					subt = tower.get(tower.indexOf(subt));
+				} else {
+					tower.add(subt);
+				}
+				subTower.addSubTower(subt);
+			}
+		}
+		return tower;
 	}
 
 	private class SubTower {
