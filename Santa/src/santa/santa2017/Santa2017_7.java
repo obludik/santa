@@ -79,13 +79,13 @@ public class Santa2017_7 implements SantaIssue {
 				if (towerWithDifferentSum != null) {
 					if (differentSumCount < sumCount) {
 						difference = differentSum - sum;
-						if (wrongTower != null && wrongTower.getSumOfWeigths() > differentSum) {
+						if (wrongTower.getSumOfWeigths() > differentSum) {
 							wrongTower = towerWithDifferentSum;
 						}
 						
 					} else {
 						difference = sum - differentSum;
-						if (wrongTower != null && wrongTower.getSumOfWeigths() > sum) {
+						if (wrongTower.getSumOfWeigths() > sum) {
 							wrongTower = towerWithOneSum;
 						}
 					}
