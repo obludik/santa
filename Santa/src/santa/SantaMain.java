@@ -5,7 +5,7 @@ import java.util.List;
 
 import file.FileReader;
 import file.FileReaderImpl;
-import santa.santa2017.Santa2017_6;
+import santa.santa2017.Santa2017_7;
 
 public class SantaMain {
 
@@ -17,7 +17,8 @@ public class SantaMain {
 	//	solveProblem(new Santa2017_3());
 	//	solveMoreLinesFile("src\\santa\\input\\santa_2017_4", new Santa2017_4());
 	//	solveMoreLinesFile("src\\santa\\input\\santa_2017_5", new Santa2017_5());
-		solveOneLineFile("src\\santa\\input\\santa_2017_6", new Santa2017_6());		
+	//	solveOneLineFile("src\\santa\\input\\santa_2017_6", new Santa2017_6());		
+		solveMoreLinesFile("src\\santa\\input\\santa_2017_7", new Santa2017_7());
 	}
 	
 	private static void solveProblem(SantaIssue issue) {
