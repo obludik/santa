@@ -8,7 +8,6 @@ import santa.SantaIssue;
 
 public class Santa2017_1 implements SantaIssue {
 
-	@Override
 	public void solvePart1(String data, List<String> dataLines) {
 		data = data + data.substring(0, 1);
 		Pattern p = Pattern.compile("([0-9])\\1+");
@@ -22,7 +21,6 @@ public class Santa2017_1 implements SantaIssue {
 		System.out.println(count);		
 	}
 
-	@Override
 	public void solvePart2(String data, List<String> dataLines) {
 		int count = 0;
 		int circ = data.length() / 2;
@@ -35,6 +33,12 @@ public class Santa2017_1 implements SantaIssue {
 			}
 		}
 		System.out.println(count);		
+	}
+
+	@Override
+	public void solveBothParts(String data, List<String> dataLines) {
+		solvePart1(data, dataLines);
+		solvePart2(data, dataLines);
 	}
 
 }

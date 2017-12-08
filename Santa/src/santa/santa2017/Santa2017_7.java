@@ -7,7 +7,6 @@ import santa.SantaIssue;
 
 public class Santa2017_7 implements SantaIssue {
 
-	@Override
 	public void solvePart1(String data, List<String> dataLines) {
 		List<String> leftNames = new ArrayList<>();
 		List<String> rightNames = new ArrayList<>();
@@ -26,7 +25,6 @@ public class Santa2017_7 implements SantaIssue {
 		}
 	}
 
-	@Override
 	public void solvePart2(String data, List<String> dataLines) {
 		List<SubTower> tower = fillTree(dataLines);
 		int difference = 0;
@@ -166,5 +164,11 @@ public class Santa2017_7 implements SantaIssue {
 			print += "subTowers={" + subTowers.size() + "}\n";
 			return print;
 		}
+	}
+	
+	@Override
+	public void solveBothParts(String data, List<String> dataLines) {
+		solvePart1(data, dataLines);
+		solvePart2(data, dataLines);
 	}
 }

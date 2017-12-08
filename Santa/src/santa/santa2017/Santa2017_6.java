@@ -13,17 +13,6 @@ public class Santa2017_6 implements SantaIssue {
 	
 	int order = 0;
 	
-	@Override
-	public void solvePart1(String data, List<String> dataLines) {
-		solve(data, dataLines);
-		
-	}
-
-	@Override
-	public void solvePart2(String data, List<String> dataLines) {
-		solve(data, dataLines);
-	}
-	
 	public void solve(String data, List<String> dataLines) {
 		List<Register> registers = Arrays.stream(data.split(DELIMITER))
 				.map(i -> new Register(Integer.valueOf(i)))
@@ -150,5 +139,10 @@ public class Santa2017_6 implements SantaIssue {
 			}
 			return true;
 		}	
+	}
+	
+	@Override
+	public void solveBothParts(String data, List<String> dataLines) {
+		solve(data, dataLines);
 	}
 }

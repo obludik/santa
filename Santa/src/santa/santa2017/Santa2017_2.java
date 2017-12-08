@@ -10,7 +10,6 @@ public class Santa2017_2 implements SantaIssue {
 
 	private static final String DELIMITER = "\\t";
 
-	@Override
 	public void solvePart1(String data, List<String> dataLines) {
 		int checksum = 0;
 		for (String line : dataLines) {
@@ -22,7 +21,6 @@ public class Santa2017_2 implements SantaIssue {
 		System.out.println(checksum);
 	}
 
-	@Override
 	public void solvePart2(String data, List<String> dataLines) {
 		int checksum = 0;
 		for (String line : dataLines) {
@@ -47,5 +45,11 @@ public class Santa2017_2 implements SantaIssue {
 			}
 		}
 		return 0;
+	}
+	
+	@Override
+	public void solveBothParts(String data, List<String> dataLines) {
+		solvePart1(data, dataLines);
+		solvePart2(data, dataLines);
 	}
 }

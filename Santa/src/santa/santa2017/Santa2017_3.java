@@ -13,16 +13,6 @@ public class Santa2017_3 implements SantaIssue {
 		UP, DOWN, LEFT, RIGHT
 	}
 	
-	@Override
-	public void solvePart1(String data, List<String> dataLines) {
-		solve(false);
-	}
-
-	@Override
-	public void solvePart2(String data, List<String> dataLines) {
-		solve(true);
-	}
-	
 	private void solve(boolean withSums) {
 		int[][] grid = new int[GRID_SIZE][GRID_SIZE];
 		int start = GRID_SIZE / 2;
@@ -93,7 +83,10 @@ public class Santa2017_3 implements SantaIssue {
 		return grid[x][y];
 	}
  
-	
-	
+	@Override
+	public void solveBothParts(String data, List<String> dataLines) {
+		solve(false);
+		solve(true);
+	}
 	
 }

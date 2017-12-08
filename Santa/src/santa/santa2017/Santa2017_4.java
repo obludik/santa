@@ -2,7 +2,6 @@ package santa.santa2017;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.OptionalInt;
 
 import santa.SantaIssue;
 
@@ -10,7 +9,6 @@ public class Santa2017_4 implements SantaIssue {
 
 	private static final String DELIMITER = " ";
 
-	@Override
 	public void solvePart1(String data, List<String> dataLines) {
 		int sum = 0;
 		for (String line : dataLines) {
@@ -23,7 +21,6 @@ public class Santa2017_4 implements SantaIssue {
 		System.out.println(sum);
 	}
 
-	@Override
 	public void solvePart2(String data, List<String> dataLines) {
 		int sum = 0;
 		for (String line : dataLines) {
@@ -39,5 +36,11 @@ public class Santa2017_4 implements SantaIssue {
 			}
 		}
 		System.out.println(sum);
+	}
+	
+	@Override
+	public void solveBothParts(String data, List<String> dataLines) {
+		solvePart1(data, dataLines);
+		solvePart2(data, dataLines);
 	}
 }
