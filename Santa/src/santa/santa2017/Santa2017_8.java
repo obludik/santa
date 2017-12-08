@@ -8,52 +8,27 @@ import santa.SantaIssue;
 
 public class Santa2017_8 implements SantaIssue {
 
-	List<Register> registers = new ArrayList<>();
-
+	Memory memory = new Memory();
+	
 	public void solve(String data, List<String> dataLines) {
-
-		int max = 0;
-		
+		int max = 0;		
 		List<Instruction> instructions = dataLines
 				.stream().map(line -> line.split(" ")).map(item -> new Instruction(item[0], item[4],
 						Integer.parseInt(item[2]), Integer.parseInt(item[6]), item[5], item[1]))
 				.collect(Collectors.toList());
 
 		for (Instruction instruction : instructions) {
-			Register reg = new Register(instruction.registerName);
-			Register conditionReg = new Register(instruction.conditionRegisterName);
-			if (registers.contains(reg)) {
-				reg = registers.get(registers.indexOf(reg));
-			} else {
-				registers.add(reg);
-			}
-			if (registers.contains(conditionReg)) {
-				conditionReg = registers.get(registers.indexOf(conditionReg));
-			} else {
-				registers.add(conditionReg);
-			}
-
-			instruction.register = reg;
-			instruction.conditionRegister = conditionReg;
-			instruction.processInstruction();
-			if (reg.value > max) {
-				max = reg.value;
+			int result = instruction.processInstruction();
+			
+			if (result > max) {
+				max = result;
 			}
 		}
 		
-		System.out.println("Part 1: " + getMaxFromRegisters());
+		System.out.println("Part 1: " + memory.getMaxFromRegisters());
 		System.out.println("Part 2: " + max);
 	}
-	
-	private int getMaxFromRegisters() {
-		int max = 0;
-		for (Register register : registers) {
-			if (register.value > max) {
-				max = register.value;
-			}
-		}
-		return max;
-	}
+
 
 	public class Instruction {
 
@@ -63,9 +38,6 @@ public class Santa2017_8 implements SantaIssue {
 		int conditionValue;
 		String condition;
 		String operation;
-
-		Register register;
-		Register conditionRegister;
 
 		public Instruction(String registerName, String conditionRegisterName, int value, int conditionValue,
 				String condition, String operation) {
@@ -77,45 +49,48 @@ public class Santa2017_8 implements SantaIssue {
 			this.operation = operation;
 		}
 
-		public void processInstruction() {
-			if (checkCondition()) {
+		public int processInstruction() {
+			Register register = memory.getRegister(registerName);
+			Register conditionRegister = memory.getRegister(conditionRegisterName);
+			if (checkCondition(conditionRegister.value)) {
 				if (operation.equals("dec")) {
 					register.value = register.value - value;
 				} else {
 					register.value = register.value + value;
 				}
 			}
+			return register.value;
 		}
 
-		public boolean checkCondition() {
+		public boolean checkCondition(int registerValue) {
 			switch (condition) {
 			case "<":
-				if (conditionRegister.value < conditionValue) {
+				if (registerValue < conditionValue) {
 					return true;
 				}
 				break;
 			case ">":
-				if (conditionRegister.value > conditionValue) {
+				if (registerValue > conditionValue) {
 					return true;
 				}
 				break;
 			case ">=":
-				if (conditionRegister.value >= conditionValue) {
+				if (registerValue >= conditionValue) {
 					return true;
 				}
 				break;
 			case "<=":
-				if (conditionRegister.value <= conditionValue) {
+				if (registerValue <= conditionValue) {
 					return true;
 				}
 				break;
 			case "==":
-				if (conditionRegister.value == conditionValue) {
+				if (registerValue == conditionValue) {
 					return true;
 				}
 				break;
 			case "!=":
-				if (conditionRegister.value != conditionValue) {
+				if (registerValue != conditionValue) {
 					return true;
 				}
 				break;
@@ -129,8 +104,7 @@ public class Santa2017_8 implements SantaIssue {
 		public String toString() {
 			return "Instruction [registerName=" + registerName + ", conditionRegisterName=" + conditionRegisterName
 					+ ", value=" + value + ", conditionValue=" + conditionValue + ", condition=" + condition
-					+ ", operation=" + operation + ", register=" + register + ", conditionRegister=" + conditionRegister
-					+ "]";
+					+ ", operation=" + operation + "]";
 		}
 	}
 
@@ -165,6 +139,39 @@ public class Santa2017_8 implements SantaIssue {
 		@Override
 		public String toString() {
 			return "Register [id=" + id + ", value=" + value + "]";
+		}
+	}
+	
+	public class Memory {
+		
+		List<Register> registers = new ArrayList<>();
+		
+		public Memory() {
+			
+		}
+		
+		public Memory(List<Register> registers) {
+			this.registers = registers;
+		}
+
+		public Register getRegister(String registerName) {
+			Register reg = new Register(registerName);
+			if (registers.contains(reg)) {
+				return registers.get(registers.indexOf(reg));
+			} else {
+				registers.add(reg);
+				return reg;
+			}
+		}	
+		
+		public int getMaxFromRegisters() {
+			int max = 0;
+			for (Register register : registers) {
+				if (register.value > max) {
+					max = register.value;
+				}
+			}
+			return max;
 		}
 	}
 	
