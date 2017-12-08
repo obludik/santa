@@ -2,28 +2,19 @@ package santa.santa2017;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import santa.SantaIssue;
 
 public class Santa2017_8 implements SantaIssue {
 
 	Memory memory = new Memory();
+	int max = 0;		
 	
 	public void solve(String data, List<String> dataLines) {
-		int max = 0;		
-		List<Instruction> instructions = dataLines
-				.stream().map(line -> line.split(" ")).map(item -> new Instruction(item[0], item[4],
-						Integer.parseInt(item[2]), Integer.parseInt(item[6]), item[5], item[1]))
-				.collect(Collectors.toList());
-
-		for (Instruction instruction : instructions) {
-			int result = instruction.processInstruction();
 			
-			if (result > max) {
-				max = result;
-			}
-		}
+		dataLines.stream().map(line -> line.split(" "))
+			.map(item -> new Instruction(item[0], item[4], Integer.parseInt(item[2]), Integer.parseInt(item[6]), item[5], item[1]))
+			.forEach(item -> item.processInstruction());				
 		
 		System.out.println("Part 1: " + memory.getMaxFromRegisters());
 		System.out.println("Part 2: " + max);
@@ -57,6 +48,10 @@ public class Santa2017_8 implements SantaIssue {
 					register.value = register.value - value;
 				} else {
 					register.value = register.value + value;
+				}
+				
+				if (register.value > max) {
+					max = register.value;
 				}
 			}
 			return register.value;
