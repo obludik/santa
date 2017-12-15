@@ -65,13 +65,13 @@ public class Santa2017_12 implements SantaIssue {
 
 		while (!l.isEmpty()) {
 			Node node = l.poll();
-			List<Node> successors = node.siblings;
-			for (Node succ : successors) {
-				if (succ.state == NEW_NODE_STATE) {
-					l.add(succ);
-					succ.state = PROCESSED_NODE_STATE;
-					groupNodes[succ.id] = succ;
-					succ.groupId = groupId;
+			List<Node> siblings = node.siblings;
+			for (Node sib : siblings) {
+				if (sib.state == NEW_NODE_STATE) {
+					l.add(sib);
+					sib.state = PROCESSED_NODE_STATE;
+					groupNodes[sib.id] = sib;
+					sib.groupId = groupId;
 				}
 			}
 		}
