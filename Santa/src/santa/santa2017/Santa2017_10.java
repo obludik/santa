@@ -54,7 +54,7 @@ public class Santa2017_10 implements SantaIssue {
 		}
 
 		System.out.println("Result: "
-				+ Arrays.stream(result).mapToObj(i -> Integer.toHexString(i))
+				+ Arrays.stream(result).mapToObj(i -> String.format("%02x", i))
 					.collect(Collectors.joining("")));
 	}
 
