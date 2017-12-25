@@ -24,7 +24,29 @@ public class Santa2017_10 implements SantaIssue {
 	}
 
 	public void solvePart2(String data, List<String> dataLines) {
-		byte[] lengthsPart = new String(data).getBytes();
+		System.out.println("Result: " + getKnotHash(data));
+	}
+
+	/**
+	 * Reverses part of array - start index inclusive, end index exclusive.
+	 * 
+	 * @param array
+	 * @param startIndex
+	 * @param endIndex
+	 */
+	private void reverseArrayPart(int[] array, int startIndex, int endIndex) {
+		int half = startIndex + (endIndex - startIndex) / 2;
+		int endCount = endIndex - 1;
+		for (int startCount = startIndex; startCount < half; startCount++) {
+			int store = array[startCount % SIZE];
+			array[startCount % SIZE] = array[endCount % SIZE];
+			array[endCount % SIZE] = store;
+			endCount--;
+		}
+	}
+
+	public String getKnotHash(String input) {
+		byte[] lengthsPart = new String(input).getBytes();
 		byte[] lengths = new byte[lengthsPart.length + 5];
 		System.arraycopy(lengthsPart, 0, lengths, 0, lengthsPart.length);
 		lengths[lengths.length - 5] = 17;
@@ -53,27 +75,7 @@ public class Santa2017_10 implements SantaIssue {
 			result[i] = xor;
 		}
 
-		System.out.println("Result: "
-				+ Arrays.stream(result).mapToObj(i -> String.format("%02x", i))
-					.collect(Collectors.joining("")));
-	}
-
-	/**
-	 * Reverses part of array - start index inclusive, end index exclusive.
-	 * 
-	 * @param array
-	 * @param startIndex
-	 * @param endIndex
-	 */
-	private void reverseArrayPart(int[] array, int startIndex, int endIndex) {
-		int half = startIndex + (endIndex - startIndex) / 2;
-		int endCount = endIndex - 1;
-		for (int startCount = startIndex; startCount < half; startCount++) {
-			int store = array[startCount % SIZE];
-			array[startCount % SIZE] = array[endCount % SIZE];
-			array[endCount % SIZE] = store;
-			endCount--;
-		}
+		return Arrays.stream(result).mapToObj(i -> String.format("%02x", i)).collect(Collectors.joining(""));
 	}
 
 	@Override
