@@ -29,7 +29,7 @@ public class Santa2017_13 implements SantaIssue {
 
 		int delay = -1;
 		boolean catched = true;
-		while (catched == true) {
+		while (catched) {
 			delay++;
 			catched = false;
 			for (Integer depth : input.keySet()) {
