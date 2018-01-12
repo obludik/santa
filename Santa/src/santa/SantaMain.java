@@ -10,6 +10,7 @@ import santa.santa2017.Santa2017_13;
 import santa.santa2017.Santa2017_14;
 import santa.santa2017.Santa2017_15;
 import santa.santa2017.Santa2017_16;
+import santa.santa2017.Santa2017_17;
 
 public class SantaMain {
 
@@ -31,7 +32,8 @@ public class SantaMain {
 	//	solveMoreLinesFile("src\\santa\\input\\santa_2017_13", new Santa2017_13());
 	//	solveProblem(new Santa2017_14());
 	//	solveProblem(new Santa2017_15());
-		solveOneLineFile("src\\santa\\input\\santa_2017_16", new Santa2017_16());		
+	//	solveOneLineFile("src\\santa\\input\\santa_2017_16", new Santa2017_16());	
+		solveProblem(new Santa2017_17());
 	}
 	
 	private static void solveProblem(SantaIssue issue) {
