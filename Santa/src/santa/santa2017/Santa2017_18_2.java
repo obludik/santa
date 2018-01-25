@@ -1,6 +1,5 @@
 package santa.santa2017;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,35 +15,30 @@ public class Santa2017_18_2 implements SantaIssue {
 		snd, set, add, mul, mod, rcv, jgz
 	}
 
-	static BlockingQueue<BigDecimal> queue1 = new LinkedBlockingQueue<>();
-	static BlockingQueue<BigDecimal> queue2 = new LinkedBlockingQueue<>();
 	boolean program0Waits = false;
 	boolean program1Waits = false;
 	static long counterProgram1 = 0;
 
 	public class ProgramThread extends Thread {
 
-		BlockingQueue<BigDecimal> in;
-		BlockingQueue<BigDecimal> out;
+		BlockingQueue<Long> in;
+		BlockingQueue<Long> out;
 		List<Instruction> instructions;
 		int id;
 		int counter = 0;
 		Map<String, Register> registers = new HashMap<>();
 
-		public ProgramThread(int id, List<Instruction> instructions, BlockingQueue<BigDecimal> in,
-				BlockingQueue<BigDecimal> out) {
+		public ProgramThread(int id, List<Instruction> instructions, BlockingQueue<Long> in, BlockingQueue<Long> out) {
 			this.in = in;
 			this.out = out;
 			this.id = id;
 			this.instructions = instructions;
 		}
 
-		long max = 0;
+		private long processInstructions(List<Instruction> instructions, long startIndex) {
 
-		private int processInstructions(List<Instruction> instructions, int startIndex) {
-
-			for (int i = startIndex; i < instructions.size(); i++) {
-				Instruction instruction = instructions.get(i);
+			for (long i = startIndex; i < instructions.size(); i++) {
+				Instruction instruction = instructions.get((int) i);
 
 				switch (instruction.instr) {
 				case snd:
@@ -57,16 +51,13 @@ public class Santa2017_18_2 implements SantaIssue {
 					getOrCreateRegister(instruction.param1).value = getValue(instruction.param2);
 					break;
 				case add:
-					getOrCreateRegister(instruction.param1).value = getOrCreateRegister(instruction.param1).value
-							.add(getValue(instruction.param2));
+					getOrCreateRegister(instruction.param1).value += getValue(instruction.param2);
 					break;
 				case mul:
-					getOrCreateRegister(instruction.param1).value = getOrCreateRegister(instruction.param1).value
-							.multiply(getValue(instruction.param2));
+					getOrCreateRegister(instruction.param1).value *= getValue(instruction.param2);
 					break;
 				case mod:
-					getOrCreateRegister(instruction.param1).value = getOrCreateRegister(instruction.param1).value
-							.remainder(getValue(instruction.param2));
+					getOrCreateRegister(instruction.param1).value %= getValue(instruction.param2);
 					break;
 				case rcv:
 					if (id == 0) {
@@ -76,8 +67,8 @@ public class Santa2017_18_2 implements SantaIssue {
 							program0Waits = false;
 						} catch (InterruptedException e) {
 							System.out.println("Interrupted");
+							return -1;
 						}
-
 					} else {
 						try {
 							program1Waits = true;
@@ -85,48 +76,39 @@ public class Santa2017_18_2 implements SantaIssue {
 							program1Waits = false;
 						} catch (InterruptedException e) {
 							System.out.println("Interrupted");
+							return -1;
 						}
-
 					}
 					break;
 				case jgz:
-					if (getOrCreateRegister(instruction.param1).value.compareTo(new BigDecimal(0)) == 1) {
-						System.out.println(id + "  " + instruction + " " + registers);
-						BigDecimal val = getValue(instruction.param2);
-						BigDecimal next = val.add(new BigDecimal(i));
-						if (next.compareTo(new BigDecimal(instructions.size())) == 1) {
-							return -1;
-						}
-						if (next.compareTo(new BigDecimal(0)) == -1) {
-							return -1;
-						}
-						return next.intValue();
+					if (getValue(instruction.param1) > 0) {
+						long val = getValue(instruction.param2);
+						return i + val;
 					}
 					break;
 				default:
 					break;
 				}
-
-				System.out.println(id + "  " + instruction + " " + registers);
 			}
 			return instructions.size();
 		}
 
 		private Register getOrCreateRegister(String register) {
+
 			if (!registers.containsKey(register)) {
 				if (register.equals("p")) {
-					registers.put(register, new Register(register, new BigDecimal(id)));
+					registers.put(register, new Register(register, (long) id));
 				} else {
-					registers.put(register, new Register(register, new BigDecimal(0)));
+					registers.put(register, new Register(register, 0L));
 				}
 			}
 			return registers.get(register);
+
 		}
 
-		private BigDecimal getValue(String registerOrInt) {
+		private long getValue(String registerOrInt) {
 			try {
-				BigDecimal i = new BigDecimal(Long.parseLong(registerOrInt));
-				return i;
+				return Long.parseLong(registerOrInt);
 			} catch (NumberFormatException e) {
 				return getOrCreateRegister(registerOrInt).value;
 			}
@@ -134,7 +116,7 @@ public class Santa2017_18_2 implements SantaIssue {
 
 		public void run() {
 			System.out.println("Hello from a thread " + id);
-			int startIndex = 0;
+			long startIndex = 0;
 			while (startIndex < instructions.size() && startIndex >= 0) {
 				startIndex = processInstructions(instructions, startIndex);
 			}
@@ -142,10 +124,13 @@ public class Santa2017_18_2 implements SantaIssue {
 
 	}
 
-	public void solvePart1(String data, List<String> dataLines) {
+	public void solvePart2(String data, List<String> dataLines) {
 		List<Instruction> instructions = dataLines.stream().map(line -> line.split(" "))
 				.map(item -> new Instruction(item[0], item[1], item.length > 2 ? item[2] : null))
 				.collect(Collectors.toList());
+
+		BlockingQueue<Long> queue1 = new LinkedBlockingQueue<>();
+		BlockingQueue<Long> queue2 = new LinkedBlockingQueue<>();
 
 		Thread thread0 = new ProgramThread(0, instructions, queue1, queue2);
 		Thread thread1 = new ProgramThread(1, instructions, queue2, queue1);
@@ -153,14 +138,14 @@ public class Santa2017_18_2 implements SantaIssue {
 		thread1.start();
 
 		while (true) {
-			if (program1Waits && program0Waits && queue1.size() == 0 && queue2.size() == 0) {
+			if (program1Waits && program0Waits && queue1.size() == 0 && queue2.isEmpty()) {
 				thread0.interrupt();
 				thread1.interrupt();
-				System.out.println("Deadlock counter " + counterProgram1);
+				System.out.println(counterProgram1);
 				break;
 			}
 			try {
-				Thread.sleep(100);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -169,16 +154,16 @@ public class Santa2017_18_2 implements SantaIssue {
 
 	private static class Register {
 		String name;
-		BigDecimal value;
+		long value;
 
-		public Register(String name, BigDecimal value) {
+		public Register(String name, long value) {
 			this.name = name;
 			this.value = value;
 		}
 
 		@Override
 		public String toString() {
-			return "Register [name=" + name + ", value=" + value.toString() + "]";
+			return "Register [name=" + name + ", value=" + value + "]";
 		}
 
 	}
@@ -202,8 +187,7 @@ public class Santa2017_18_2 implements SantaIssue {
 
 	@Override
 	public void solveBothParts(String data, List<String> dataLines) {
-		solvePart1(data, dataLines);
-		// solvePart2(data, dataLines);
+		solvePart2(data, dataLines);
 	}
 
 }

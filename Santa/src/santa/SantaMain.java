@@ -37,7 +37,7 @@ public class SantaMain {
 	//	solveOneLineFile("src\\santa\\input\\santa_2017_16", new Santa2017_16());	
 	//	solveProblem(new Santa2017_17());
 	//	solveMoreLinesFile("src\\santa\\input\\santa_2017_18", new Santa2017_18());
-		solveMoreLinesFile("src\\santa\\input\\santa_2017_18_2", new Santa2017_18_2());
+		solveMoreLinesFile("src\\santa\\input\\santa_2017_18", new Santa2017_18_2());
 	}
 	
 	private static void solveProblem(SantaIssue issue) {
