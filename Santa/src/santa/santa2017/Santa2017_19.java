@@ -6,7 +6,7 @@ import santa.SantaIssue;
 
 public class Santa2017_19 implements SantaIssue {
 
-	static char[][] grid = null; //new int[250][250];
+	static char[][] grid = null;
 	
 	public void solvePart1(String data, List<String> dataLines) {
 		
