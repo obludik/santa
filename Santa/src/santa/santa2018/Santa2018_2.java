@@ -31,8 +31,6 @@ public class Santa2018_2 implements SantaIssue {
 				tripples++;
 			}
 		}
-		System.out.println(doubles);
-		System.out.println(tripples);
 		System.out.println(doubles * tripples);
 	}
 	
