@@ -5,14 +5,15 @@ import java.util.List;
 
 import file.FileReader;
 import file.FileReaderImpl;
-import santa.santa2017.Santa2017_19;
-import santa.santa2017.Santa2017_20;
+import santa.santa2018.Santa2018_2;
 
 public class SantaMain {
 
 	private static FileReader reader = new FileReaderImpl();
 	
 	public static void main(String[] args) {
+		solveMoreLinesFile("src\\santa\\input\\santa_2018_2", new Santa2018_2());
+	//	solveMoreLinesFile("src\\santa\\input\\santa_2018_1", new Santa2018_1());		
 	//	solveOneLineFile("src\\santa\\input\\santa_2017_1", new Santa2017_1());
 	//	solveMoreLinesFile("src\\santa\\input\\santa_2017_2", new Santa2017_2());
 	//	solveProblem(new Santa2017_3());
@@ -33,7 +34,7 @@ public class SantaMain {
 	//	solveMoreLinesFile("src\\santa\\input\\santa_2017_18", new Santa2017_18());
 	//	solveMoreLinesFile("src\\santa\\input\\santa_2017_18", new Santa2017_18_2());
 	//	solveMoreLinesFile("src\\santa\\input\\santa_2017_19", new Santa2017_19());
-		solveMoreLinesFile("src\\santa\\input\\santa_2017_20", new Santa2017_20());
+	//	solveMoreLinesFile("src\\santa\\input\\santa_2017_20", new Santa2017_20());
 	}
 	
 	private static void solveProblem(SantaIssue issue) {
