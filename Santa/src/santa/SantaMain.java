@@ -5,15 +5,15 @@ import java.util.List;
 
 import file.FileReader;
 import file.FileReaderImpl;
-import santa.santa2018.Santa2018_3;
-import santa.santa2018.Santa2018_4;
+import santa.santa2018.Santa2018_5;
 
 public class SantaMain {
 
 	private static FileReader reader = new FileReaderImpl();
 	
 	public static void main(String[] args) {
-		solveMoreLinesFile("src\\santa\\input\\santa_2018_4", new Santa2018_4());
+		solveOneLineFile("src\\santa\\input\\santa_2018_5", new Santa2018_5());
+	//	solveMoreLinesFile("src\\santa\\input\\santa_2018_4", new Santa2018_4());
 	//	solveMoreLinesFile("src\\santa\\input\\santa_2018_3", new Santa2018_3());
 	//	solveMoreLinesFile("src\\santa\\input\\santa_2018_2", new Santa2018_2());
 	//	solveMoreLinesFile("src\\santa\\input\\santa_2018_1", new Santa2018_1());		
