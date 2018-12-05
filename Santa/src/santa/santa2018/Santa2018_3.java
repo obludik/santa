@@ -12,7 +12,7 @@ public class Santa2018_3 implements SantaIssue {
 	private static final Pattern PATTERN = Pattern.compile("#([0-9]*)[ ]@[ ]([0-9]*),([0-9]*):[ ]([0-9]*)[x]([0-9]*)");
 	
 	public void solvePart12(String data, List<String> dataLines) {
-		int[][] fabric = new int[1500][1500];
+		int[][] fabric = new int[1000][1000];
 		List<Area> areas = new ArrayList<>();
 		for (String line : dataLines) {
 			Matcher m = PATTERN.matcher(line);
@@ -23,8 +23,8 @@ public class Santa2018_3 implements SantaIssue {
 			int lenX = Integer.parseInt(m.group(4));
 			int lenY = Integer.parseInt(m.group(5));
 			areas.add(new Area(id, x, y, lenX, lenY));
-			for (int i = x + 1; i <= x + lenX; i++) {
-				for (int j = y + 1; j <= y + lenY; j++) {
+			for (int i = x; i < x + lenX; i++) {
+				for (int j = y; j < y + lenY; j++) {
 					fabric[i][j]++;
 				}
 			}
@@ -42,8 +42,8 @@ public class Santa2018_3 implements SantaIssue {
 		
 		for (Area area : areas) {
 			boolean found = true;
-			for (int i = area.x + 1; i <= area.x + area.lenX; i++) {
-				for (int j = area.y + 1; j <= area.y + area.lenY; j++) {
+			for (int i = area.x; i < area.x + area.lenX; i++) {
+				for (int j = area.y; j < area.y + area.lenY; j++) {
 					if (fabric[i][j] != 1) {
 						found = false;
 					}
