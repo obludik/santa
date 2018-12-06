@@ -15,50 +15,7 @@ public class Santa2018_6 implements SantaIssue {
 	int[][] grid = new int[400][400];
 	int maxId = 0;
 	
-	private void solvePart2() {
-		for (int x = 0; x < grid.length; x++) {
-			for (int y = 0; y < grid.length; y++) {
-				if (grid[x][y] >= 1 && (grid[x][y] < maxId)) {
-					continue;
-				}
-				int sum = 0;
-				for (CoordinatesWithCount coordinates : coords) {
-					sum += (int)(Math.abs(coordinates.getX() - x) + Math.abs(coordinates.getY() - y));
-				}
-				if (sum < maxId) {
-					grid[x][y] = maxId;
-				} else {
-					grid[x][y] = sum;
-				}
-			}
-		}
-		
-		int count = 0;
-		for (int i = 0; i < grid.length; i++) {
-			for (int j = 0; j < grid.length; j++) {
-				if (grid[j][i] < 10000) {
-					
-					
-					if (grid[j][i] >= 1 && (grid[j][i] < maxId)) {
-						System.out.print("_");
-						if (grid[j-1][i] < 10000 || grid[j][i-1] < 10000 || grid[j+1][i] < 10000 || grid[j][i+1] < 10000) {
-							count++;
-						}
-					} else {
-						System.out.print(grid[j][i] < 10000 ? "#" : " ");
-						count++;
-					}
-				} else {
-					System.out.print(" ");
-				}
-				
-				
-				
-			}
-			System.out.println();
-		}
-		System.out.println(count);
-	}
+
 	
 	private void solvePart1() {
 		for (int x = 0; x < grid.length; x++) {
@@ -112,6 +69,46 @@ public class Santa2018_6 implements SantaIssue {
 		
 		System.out.println(max + 1);
 	}
+
+	private void solvePart2() {
+		for (int x = 0; x < grid.length; x++) {
+			for (int y = 0; y < grid.length; y++) {
+				if (grid[x][y] >= 1 && (grid[x][y] < maxId)) {
+					continue;
+				}
+				int sum = 0;
+				for (CoordinatesWithCount coordinates : coords) {
+					sum += (int)(Math.abs(coordinates.getX() - x) + Math.abs(coordinates.getY() - y));
+				}
+				if (sum < maxId) {
+					grid[x][y] = maxId;
+				} else {
+					grid[x][y] = sum;
+				}
+			}
+		}
+		
+		int count = 0;
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid.length; j++) {
+				if (grid[j][i] < 10000) {					
+					if (grid[j][i] >= 1 && (grid[j][i] < maxId)) {
+						System.out.print("_");
+						if (grid[j-1][i] < 10000 || grid[j][i-1] < 10000 || grid[j+1][i] < 10000 || grid[j][i+1] < 10000) {
+							count++;
+						}
+					} else {
+						System.out.print(grid[j][i] < 10000 ? "#" : " ");
+						count++;
+					}
+				} else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}
+		System.out.println(count);
+	}
 	
 	@Override
 	public void solveBothParts(String data, List<String> dataLines) {
@@ -123,11 +120,12 @@ public class Santa2018_6 implements SantaIssue {
 			int x = Integer.parseInt(m.group(1));
 			int y = Integer.parseInt(m.group(2));
 			grid[x][y] = id;
-			coords.add(new CoordinatesWithCount(x, y, id));
+			coords.add(new CoordinatesWithCount(x, y));
 			id++;
 		}
 		maxId = id;
 		
+		solvePart1(); 
 		solvePart2(); 
 	}
 	
