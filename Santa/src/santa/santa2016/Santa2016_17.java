@@ -3,7 +3,7 @@ package santa.santa2016;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import util.Conversions;
+import util.Utils;
 
 public class Santa2016_17 {
 
@@ -51,7 +51,7 @@ public class Santa2016_17 {
     	}
     	
     	byte[] thedigest = md.digest((PASS + path).getBytes());
-        String hash = Conversions.byte2hexString(thedigest).toLowerCase();
+        String hash = Utils.byte2hexString(thedigest).toLowerCase();
 
         if (canUp(y, hash.charAt(0))) {
         	 getPath(x, y + 1, path + "U");

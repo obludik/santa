@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import util.Conversions;
+import util.Utils;
 
 public class Santa2016_14 {
 
@@ -67,10 +67,10 @@ public class Santa2016_14 {
         } else {
             byte[] thedigest = md
                     .digest(new String(input + index).getBytes());
-            hash = Conversions.byte2hexString(thedigest).toLowerCase();
+            hash = Utils.byte2hexString(thedigest).toLowerCase();
             for (int j = 0; j < REPEATS; j++) {
                 thedigest = md.digest(new String(hash).getBytes());
-                hash = Conversions.byte2hexString(thedigest).toLowerCase();
+                hash = Utils.byte2hexString(thedigest).toLowerCase();
                
             }
         }

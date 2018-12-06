@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.function.Predicate;
 
-import util.Conversions;
+import util.Utils;
 
 public class Santa2016_5 {
 
@@ -18,7 +18,7 @@ public class Santa2016_5 {
             md = MessageDigest.getInstance("MD5");
             for (int i = 0; i < 55000000; i++) {
                 byte[] thedigest = md.digest(new String(d + i).getBytes());
-                String a = Conversions.byte2hexString(thedigest);
+                String a = Utils.byte2hexString(thedigest);
                 if (a.startsWith("00000")) {
                   //  System.out.println(new String(d + i));
                   //  System.out.println(a);
