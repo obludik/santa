@@ -13,11 +13,6 @@ public class Santa2018_11 implements SantaIssue {
 
 	@Override
 	public void solveBothParts(String data, List<String> dataLines) {
-		solv(data, dataLines);
-	}
-
-	public void solv(String data, List<String> dataLines) {
-
 		for (int i = 1; i <= grid.length; i++) {
 			for (int j = 1; j <= grid.length; j++) {
 				int val = ((i + 10) * j + SERIAL_NUM) * (i + 10);
